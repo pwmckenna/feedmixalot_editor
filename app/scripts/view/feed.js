@@ -28,6 +28,41 @@ define([
             this.itemCount = 0;
             this.preview = _.debounce(this.preview, 1000);
         },
+        detachClipboard: function() {
+            if(!this.clipboard) return;
+            this.clipboard.unglue(this.$('.copy')[0]);
+        },
+        attachClipboard: function() {
+            if(this.clipboard) {
+                this.clipboard.reposition();
+                return;
+            }
+
+            this.clipboard = new ZeroClipboard(this.$('.copy')[0], {
+                moviePath: 'scripts/components/zeroclipboard/ZeroClipboard.swf' 
+            });
+
+            var setText = _.bind(function(client) {
+                this.clipboard.setText(this.getShortUrl());
+            }, this);
+
+            var unsetText = _.bind(function(client) {
+                this.clipboard.setText('broken');
+            }, this)
+
+            this.clipboard.on('load', function(client) {
+                console.log( "movie is loaded" );
+            });
+
+            this.clipboard.on('complete', function(client, args) {
+                console.log("Copied text to clipboard: " + args.text );
+            });
+
+            this.clipboard.on('mouseover', setText);
+            this.clipboard.on('mouseout', unsetText);
+            this.clipboard.on( 'mousedown', setText);
+            //this.clipboard.on( 'mouseup', unsetText);
+        },
         preview: function() {
             var req = $.ajax({
                 url: this.getShortUrl(),
@@ -98,12 +133,14 @@ define([
             this.$('.count').text(this.itemCount);
         },
         render: function() {
+            this.detachClipboard();
             var urls = this.$('.urls').children().detach();
             this.$el.html(this.template(_.extend(this.model.val(), {
                 url: this.getShortUrl(),
                 count: this.itemCount
             })));
             this.$('.urls').append(urls);
+            this.attachClipboard();
             return this;
         }
     });
