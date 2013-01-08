@@ -1,6 +1,0 @@
-{
-    "name": "feedmixalot",
-    "dependencies": {
-        "backbone": "0.9.9"
-    }
-}
