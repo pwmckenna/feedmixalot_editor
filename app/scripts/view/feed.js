@@ -28,10 +28,6 @@ define([
             this.itemCount = 0;
             this.preview = _.debounce(this.preview, 1000);
         },
-        detachClipboard: function() {
-            if(!this.clipboard) return;
-            this.clipboard.unglue(this.$('.copy')[0]);
-        },
         attachClipboard: function() {
             if(this.clipboard) {
                 this.clipboard.reposition();
@@ -133,7 +129,6 @@ define([
             this.$('.count').text(this.itemCount);
         },
         render: function() {
-            this.detachClipboard();
             var urls = this.$('.urls').children().detach();
             this.$el.html(this.template(_.extend(this.model.val(), {
                 url: this.getShortUrl(),
