@@ -9,6 +9,7 @@ define([
         events: {
             'click .removeFeed': 'onRemove',
             'click .edit': 'onEditToggle',
+            'click .copy': 'onCopy',
 
             'click .editor .addUrl': 'onAddUrl',
             'keyup .editor .url': 'onAddUrlChange',
@@ -52,6 +53,9 @@ define([
         },
         onEditToggle: function(ev) {
             this.$('.editor').toggle();
+        },
+        onCopy: function(ev) {
+            alert('Copying ' + this.getShortUrl());
         },
         onAddUrl: function(ev) {
             if(this.$('.editor .addUrl').hasClass('disabled')) {
