@@ -9,7 +9,6 @@ define([
         events: {
             'click .removeFeed': 'onRemove',
             'click .edit': 'onEditToggle',
-            'click .copy': 'onCopy',
 
             'click .editor .addUrl': 'onAddUrl',
             'keyup .editor .url': 'onAddUrlChange',
@@ -47,7 +46,7 @@ define([
             }, this)
 
             this.clipboard.on('load', function(client) {
-                console.log( "movie is loaded" );
+                console.log("movie is loaded");
             });
 
             this.clipboard.on('complete', function(client, args) {
@@ -57,7 +56,7 @@ define([
             this.clipboard.on('mouseover', setText);
             this.clipboard.on('mouseout', unsetText);
             this.clipboard.on( 'mousedown', setText);
-            //this.clipboard.on( 'mouseup', unsetText);
+            this.clipboard.on( 'mouseup', unsetText);
         },
         preview: function() {
             var req = $.ajax({
@@ -84,9 +83,6 @@ define([
         },
         onEditToggle: function(ev) {
             this.$('.editor').toggle();
-        },
-        onCopy: function(ev) {
-            alert('Copying ' + this.getShortUrl());
         },
         onAddUrl: function(ev) {
             if(this.$('.editor .addUrl').hasClass('disabled')) {
