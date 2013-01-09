@@ -12,10 +12,8 @@ define([
         initialize: function() {
             _.bindAll(this, 'onFeedAdded', 'onFeedRemoved');
             this.template = _.template($('#logged_in_template').html());
-            this.model.on('change:status', this.render, this);
+            this.model.on('change:status', this.onStatus, this);
             this.views = [];
-            this.model.feeds.on('child_added', this.onFeedAdded);
-            this.model.feeds.on('child_removed', this.onFeedRemoved)
         },
         onFeedAdded: function(feedChildSnapshot) {
             var view = new FeedView({
@@ -34,14 +32,19 @@ define([
                 facebook_id: this.model.get('userID')
             });
         },
-        render: function() {
-            this.$el.html(this.template());
+        onStatus: function() {
             var status = this.model.get('status');
             if(_.isString(status) && status === 'connected') {
+                this.model.feeds.on('child_added', this.onFeedAdded);
+                this.model.feeds.on('child_removed', this.onFeedRemoved)
                 this.$el.show();
             } else {
                 this.$el.hide();
-            }            
+            }
+            this.render();
+        },
+        render: function() {
+            this.$el.html(this.template());
             return this;
         }
     });
