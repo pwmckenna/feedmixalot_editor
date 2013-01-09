@@ -5,10 +5,17 @@ define([
     './url'
 ], function($, _, View, UrlView) {
     'use strict';
+    var clip = new ZeroClipboard.Client();
+    clip.setHandCursor(true);
+    clip.addEventListener('complete', function(client, text) {
+        alert('Copied text to clipboard: ' + text);
+    });
+
     var FeedView = View.extend({
         events: {
             'click .removeFeed': 'onRemove',
             'click .edit': 'onEditToggle',
+            'mouseover .copy': 'onCopy',
 
             'click .editor .addUrl': 'onAddUrl',
             'keyup .editor .url': 'onAddUrlChange',
@@ -26,37 +33,6 @@ define([
             this.model.child('name').ref().on('value', this.onNameChanged);
             this.itemCount = 0;
             this.preview = _.debounce(this.preview, 1000);
-        },
-        attachClipboard: function() {
-            if(this.clipboard) {
-                this.clipboard.reposition();
-                return;
-            }
-
-            this.clipboard = new ZeroClipboard(this.$('.copy')[0], {
-                moviePath: 'scripts/components/zeroclipboard/ZeroClipboard.swf' 
-            });
-
-            var setText = _.bind(function(client) {
-                this.clipboard.setText(this.getShortUrl());
-            }, this);
-
-            var unsetText = _.bind(function(client) {
-                this.clipboard.setText('broken');
-            }, this)
-
-            this.clipboard.on('load', function(client) {
-                console.log("movie is loaded");
-            });
-
-            this.clipboard.on('complete', function(client, args) {
-                console.log("Copied text to clipboard: " + args.text );
-            });
-
-            this.clipboard.on('mouseover', setText);
-            this.clipboard.on('mouseout', unsetText);
-            this.clipboard.on( 'mousedown', setText);
-            this.clipboard.on( 'mouseup', unsetText);
         },
         preview: function() {
             var req = $.ajax({
@@ -83,6 +59,19 @@ define([
         },
         onEditToggle: function(ev) {
             this.$('.editor').toggle();
+        },
+        onCopy: function(ev) {
+            console.log('onCopy', this.getShortUrl());
+            clip.setText(this.getShortUrl());
+
+            var elem = this.$('.copy')[0];
+            if(clip.div) {
+                clip.receiveEvent('mouseout', null);
+                clip.reposition(elem);
+            } else {
+                clip.glue(elem)
+            }
+            clip.receiveEvent('mouseover', null);
         },
         onAddUrl: function(ev) {
             if(this.$('.editor .addUrl').hasClass('disabled')) {
@@ -131,7 +120,6 @@ define([
                 count: this.itemCount
             })));
             this.$('.urls').append(urls);
-            this.attachClipboard();
             return this;
         }
     });
