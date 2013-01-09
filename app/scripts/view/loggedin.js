@@ -42,6 +42,7 @@ define([
         },
         render: function() {
             this.$el.html(this.template());
+            var status = this.model.get('status');
             if(_.isString(status) && status === 'connected') {
                 this.$el.show();
             } else {
