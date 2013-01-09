@@ -36,15 +36,17 @@ define([
             var status = this.model.get('status');
             if(_.isString(status) && status === 'connected') {
                 this.model.feeds.on('child_added', this.onFeedAdded);
-                this.model.feeds.on('child_removed', this.onFeedRemoved)
-                this.$el.show();
-            } else {
-                this.$el.hide();
+                this.model.feeds.on('child_removed', this.onFeedRemoved);
             }
             this.render();
         },
         render: function() {
             this.$el.html(this.template());
+            if(_.isString(status) && status === 'connected') {
+                this.$el.show();
+            } else {
+                this.$el.hide();
+            }
             return this;
         }
     });
