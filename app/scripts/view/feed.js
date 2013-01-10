@@ -8,17 +8,13 @@ define([
     var clip = new ZeroClipboard.Client();
     clip.setHandCursor(true);
     clip.addEventListener('complete', function(client, text) {
-        console.log('Copied text to clipboard: ' + text);
-        var button = $(clip.domElement);
-        button.addClass('disabled');
-        var linkElem = button.next();
+        alert('Copied text to clipboard: ' + text);
+        var linkElem = $(clip.domElement).next();
         var link = linkElem.attr('placeholder');
-        linkElem.attr('placeholder', 'Copied!');
-        var delay = 2000;
+        linkElem.attr('placeholder',' Copied!');
         setTimeout(function() {
-            linkElem.attr('placeholder', link);
-            button.removeClass('disabled');
-        }, delay);
+            linkElem.attr('placeholder', linkElem.attr('url'));
+        }, 1000);
     });
 
     var FeedView = View.extend({
