@@ -8,7 +8,6 @@ define([
     var clip = new ZeroClipboard.Client();
     clip.setHandCursor(true);
     clip.addEventListener('complete', function(client, text) {
-        alert('Copied text to clipboard: ' + text);
         var linkElem = $(clip.domElement).next();
         var link = linkElem.attr('placeholder');
         linkElem.attr('placeholder',' Copied!');
