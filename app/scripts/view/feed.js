@@ -11,10 +11,10 @@ define([
         console.log('Copied text to clipboard: ' + text);
         var linkElem = $(clip.domElement).next();
         var link = linkElem.attr('placeholder');
-        link.attr('placeholder', 'Copied!');
+        linkElem.attr('placeholder', 'Copied!');
         var delay = 2000;
         setTimeout(function() {
-            link.attr('placeholder', link);
+            linkElem.attr('placeholder', link);
         }, delay);
     });
 
