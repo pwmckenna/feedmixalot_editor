@@ -8,7 +8,14 @@ define([
     var clip = new ZeroClipboard.Client();
     clip.setHandCursor(true);
     clip.addEventListener('complete', function(client, text) {
-        alert('Copied text to clipboard: ' + text);
+        console.log('Copied text to clipboard: ' + text);
+        var linkElem = $(clip.domElement).next();
+        var link = linkElem.attr('placeholder');
+        link.attr('placeholder', 'Copied!');
+        var delay = 2000;
+        setTimeout(function() {
+            link.attr('placeholder', link);
+        }, delay);
     });
 
     var FeedView = View.extend({
