@@ -10,7 +10,7 @@ define([
     clip.addEventListener('complete', function(client, text) {
         var linkElem = $(clip.domElement).next();
         var link = linkElem.attr('placeholder');
-        linkElem.attr('placeholder',' Copied!');
+        linkElem.attr('placeholder',' Copied to clipboard!');
         setTimeout(function() {
             linkElem.attr('placeholder', linkElem.attr('url'));
         }, 1000);
