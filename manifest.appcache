@@ -1,8 +1,7 @@
 # The "fb-root" div has not been created, auto-creating (undefined, #undefined)
-# Given URL is not allowed by the Application configuration.: One or more of the given URLs is not allowed by the App's settings.  It must match the Website URL or Canvas URL, or the domain must be a subdomain of one of the App's domains. (undefined, #undefined)
 CACHE MANIFEST
 
-# Time: Wed Jan 09 2013 17:36:55 GMT-0800 (PST)
+# Time: Wed Jan 09 2013 17:42:13 GMT-0800 (PST)
 # This manifest was created by confess.js, http://github.com/jamesgpearce/confess
 #
 # Retrieved URL: http://localhost:3501/
@@ -38,7 +37,7 @@ https://fbstatic-a.akamaihd.net/rsrc.php/v2/yP/x/bSOHtKbCGYI.png
 https://fbstatic-a.akamaihd.net/rsrc.php/v2/yR/x/8YeTNIlTZjm.png
 https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/x/3rhSv5V8j3o.gif
 https://fbstatic-a.akamaihd.net/rsrc.php/v2/yl/x/FGFbc80dUKj.png
-scripts/60dcb428.amd-app.js
+scripts/4c5826fb.amd-app.js
 scripts/8ab52a5b.plugins.js
 scripts/vendor/b7cdd774.ZeroClipboard.js
 scripts/vendor/cf69c6f2.modernizr.min.js
