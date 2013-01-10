@@ -9,12 +9,15 @@ define([
     clip.setHandCursor(true);
     clip.addEventListener('complete', function(client, text) {
         console.log('Copied text to clipboard: ' + text);
-        var linkElem = $(clip.domElement).next();
+        var button = $(clip.domElement);
+        button.addClass('disabled');
+        var linkElem = button.next();
         var link = linkElem.attr('placeholder');
         linkElem.attr('placeholder', 'Copied!');
         var delay = 2000;
         setTimeout(function() {
             linkElem.attr('placeholder', link);
+            button.removeClass('disabled');
         }, delay);
     });
 
