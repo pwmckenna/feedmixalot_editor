@@ -12,7 +12,7 @@ define([
         initialize: function() {
             _.bindAll(this, 'onFeedAdded', 'onFeedRemoved');
             this.template = _.template($('#logged_in_template').html());
-            this.model.on('change:status', this.onStatus, this);
+            this.model.on('change:user', this.onUser, this);
             this.views = [];
         },
         onFeedAdded: function(feedChildSnapshot) {
@@ -27,21 +27,23 @@ define([
             delete this.views[feedChildSnapshot.name()];
         },
         onAddFeed: function(ev) {
-            this.model.feeds.push({
+            var user = this.model.get('user');
+            this.model.users.child(user).child('feeds').push({
                 name: 'new feed',
                 facebook_id: this.model.get('user').id
             });
         },
-        onStatus: function() {
-            if(this.model.get('status')) {
-                this.model.feeds.on('child_added', this.onFeedAdded);
-                this.model.feeds.on('child_removed', this.onFeedRemoved);
+        onUser: function() {
+            var user = this.model.get('user');
+            if(user) {
+                this.model.users.child(user).child('feeds').on('child_added', this.onFeedAdded);
+                this.model.users.child(user).child('feeds').on('child_removed', this.onFeedRemoved);
             }
             this.render();
         },
         render: function() {
             this.$el.html(this.template());
-            if(this.model.get('status')) {
+            if(this.model.get('user')) {
                 this.$el.show();
             } else {
                 this.$el.hide();

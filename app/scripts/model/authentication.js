@@ -6,9 +6,8 @@ define([
     'use strict';
     var AuthenticationModel = Backbone.Model.extend({
         initialize: function() {
-            this.feeds = new Firebase('https://feedmixalot.firebaseIO.com/feeds');
-            this.auth = new FirebaseAuthClient(this.feeds);
-            this.set('status', false);
+            this.users = new Firebase('https://feedmixalot.firebaseIO.com/users');
+            this.auth = new FirebaseAuthClient(this.users);
         },
         login: function() {
             this.auth.login('facebook', _.bind(this.onLogin, this));
@@ -20,8 +19,6 @@ define([
                 console.log('User ID: ' + user.id); // '1234'
                 console.log('Provider: ' + user.provider); // 'facebook'
                 this.set('user', user);
-                this.set('token', token);
-                this.set('status', true);
             } else {
                 console.log(error);
             }
