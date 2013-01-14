@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Time: Mon Jan 14 2013 15:35:04 GMT-0800 (PST)
+# Time: Mon Jan 14 2013 15:40:38 GMT-0800 (PST)
 # This manifest was created by confess.js, http://github.com/jamesgpearce/confess
 #
 # Retrieved URL: http://localhost:3501/
@@ -26,46 +26,8 @@ http://fonts.googleapis.com/css?family=Abril+Fatface
 http://www.google-analytics.com/ga.js
 https://cdn.firebase.com/v0/firebase-auth-client.js
 https://cdn.firebase.com/v0/firebase.js
+scripts/153c8ffb.amd-app.js
 scripts/8ab52a5b.plugins.js
-scripts/a7da001e.amd-app.js
-scripts/vendor/b7cdd774.ZeroClipboard.js
-scripts/vendor/cf69c6f2.modernizr.min.js
-styles/576c6595.font-awesome.css
-styles/9ca8c101.bootstrap.css
-styles/e925c087.main.css
-
-NETWORK:
-*
-CACHE MANIFEST
-
-# Time: Mon Jan 14 2013 15:35:04 GMT-0800 (PST)
-# This manifest was created by confess.js, http://github.com/jamesgpearce/confess
-#
-# Retrieved URL: http://localhost:3501/
-# User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
-#
-# Config:
-#  task: appcache
-#  userAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.12 Safari/535.11
-#  wait: 0
-#  consolePrefix: #
-#  verbose: true
-#  appcache:
-#   urlsFromDocument: true
-#   urlsFromRequests: false
-#   cacheFilter: .*
-#   networkFilter: null
-#  url: http://localhost:3501
-#  configFile: /usr/local/lib/node_modules/yeoman/lib/support/confess.json
-
-CACHE:
-http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js
-http://fonts.googleapis.com/css?family=Abril+Fatface
-http://www.google-analytics.com/ga.js
-https://cdn.firebase.com/v0/firebase-auth-client.js
-https://cdn.firebase.com/v0/firebase.js
-scripts/8ab52a5b.plugins.js
-scripts/a7da001e.amd-app.js
 scripts/vendor/b7cdd774.ZeroClipboard.js
 scripts/vendor/cf69c6f2.modernizr.min.js
 styles/576c6595.font-awesome.css
