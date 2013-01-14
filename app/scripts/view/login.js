@@ -21,11 +21,10 @@ define([
         },
         render: function() {
             this.$el.html(this.template());
-            var status = this.model.get('status');
-            if(_.isString(status) && status !== 'connected') {
-                this.$el.show();
-            } else {
+            if(this.model.get('status')) {
                 this.$el.hide();
+            } else {
+                this.$el.show();
             }            
             return this;
         }

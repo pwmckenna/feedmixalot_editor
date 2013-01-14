@@ -33,8 +33,7 @@ define([
             });
         },
         onStatus: function() {
-            var status = this.model.get('status');
-            if(_.isString(status) && status === 'connected') {
+            if(this.model.get('status')) {
                 this.model.feeds.on('child_added', this.onFeedAdded);
                 this.model.feeds.on('child_removed', this.onFeedRemoved);
             }
@@ -42,8 +41,7 @@ define([
         },
         render: function() {
             this.$el.html(this.template());
-            var status = this.model.get('status');
-            if(_.isString(status) && status === 'connected') {
+            if(this.model.get('status')) {
                 this.$el.show();
             } else {
                 this.$el.hide();

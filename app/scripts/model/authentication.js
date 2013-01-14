@@ -8,16 +8,7 @@ define([
         initialize: function() {
             this.feeds = new Firebase('https://feedmixalot.firebaseIO.com/feeds');
             this.auth = new FirebaseAuthClient(this.feeds);
-            this.set('status', 'disconnected');
-        },
-        getLoginStatus: function() {
-            console.log('getLoginStatus');
-            FB.getLoginStatus(_.bind(this.onLoginStatus, this));
-        },
-        onLoginStatus: function(response) {
-            console.log('onLoginStatus', response);
-            this.set('status', response.status);
-            this.set(response.authResponse);
+            this.set('status', false);
         },
         login: function() {
             this.auth.login('facebook', _.bind(this.onLogin, this));
@@ -28,10 +19,12 @@ define([
                 // You can now do Firebase operations as an authenticated user...
                 console.log('User ID: ' + user.id); // '1234'
                 console.log('Provider: ' + user.provider); // 'facebook'
+                this.set('user', user);
+                this.set('token', token);
+                this.set('status', true);
             } else {
                 console.log(error);
             }
-            this.getLoginStatus();
         }
     });
     return AuthenticationModel;
