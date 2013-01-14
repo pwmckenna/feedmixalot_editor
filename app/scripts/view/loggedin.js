@@ -28,7 +28,7 @@ define([
         },
         onAddFeed: function(ev) {
             var user = this.model.get('user');
-            this.model.users.child(user).child('feeds').push({
+            this.model.users.child(user.id).child('feeds').push({
                 name: 'new feed',
                 facebook_id: this.model.get('user').id
             });
@@ -36,8 +36,8 @@ define([
         onUser: function() {
             var user = this.model.get('user');
             if(user) {
-                this.model.users.child(user).child('feeds').on('child_added', this.onFeedAdded);
-                this.model.users.child(user).child('feeds').on('child_removed', this.onFeedRemoved);
+                this.model.users.child(user.id).child('feeds').on('child_added', this.onFeedAdded);
+                this.model.users.child(user.id).child('feeds').on('child_removed', this.onFeedRemoved);
             }
             this.render();
         },
