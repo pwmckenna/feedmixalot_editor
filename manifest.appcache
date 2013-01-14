@@ -1,7 +1,6 @@
-# The "fb-root" div has not been created, auto-creating (undefined, #undefined)
 CACHE MANIFEST
 
-# Time: Wed Jan 09 2013 18:22:35 GMT-0800 (PST)
+# Time: Mon Jan 14 2013 11:05:28 GMT-0800 (PST)
 # This manifest was created by confess.js, http://github.com/jamesgpearce/confess
 #
 # Retrieved URL: http://localhost:3501/
@@ -27,16 +26,6 @@ http://fonts.googleapis.com/css?family=Abril+Fatface
 http://www.google-analytics.com/ga.js
 https://cdn.firebase.com/v0/firebase-auth-client.js
 https://cdn.firebase.com/v0/firebase.js
-https://connect.facebook.net/en_US/all.js#xfbml=1&appId=532176763467351
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yA/x/IE9JII6Z1Ys.png
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/x/Cou7n-nqK52.gif
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yH/x/eIpbnVKI9lR.png
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yJ/x/jKEcVPZFk-2.gif
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/x/i_oIVTKMYsL.png
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yP/x/bSOHtKbCGYI.png
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yR/x/8YeTNIlTZjm.png
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yc/x/3rhSv5V8j3o.gif
-https://fbstatic-a.akamaihd.net/rsrc.php/v2/yl/x/FGFbc80dUKj.png
 scripts/16486458.amd-app.js
 scripts/8ab52a5b.plugins.js
 scripts/vendor/b7cdd774.ZeroClipboard.js
