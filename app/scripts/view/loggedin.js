@@ -29,7 +29,7 @@ define([
         onAddFeed: function(ev) {
             this.model.feeds.push({
                 name: 'new feed',
-                facebook_id: this.model.get('userID')
+                facebook_id: this.model.get('user').id
             });
         },
         onStatus: function() {
