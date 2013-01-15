@@ -36,7 +36,7 @@ define([
             });
             link.set({
                 user: user.id
-                link: feed.name()
+                feed: feed.name()
             });
         },
         onUser: function() {
