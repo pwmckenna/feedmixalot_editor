@@ -30,6 +30,7 @@ define([
             this.template = _.template($('#feed_template').html());
             this.render();
             this.views = [];
+            this.link = 'generating...';
             var urlChildren = this.model.child('urls');
             urlChildren.ref().on('child_added', this.onUrlAdded, this);
             urlChildren.ref().on('child_removed', this.onUrlRemoved, this);
@@ -46,7 +47,8 @@ define([
             this.$('.label.name').text(name.val());
         },
         onLinkChanged: function(link) {
-            this.$('.shorty').attr('placeholder', this.getShortUrl());
+            this.link = 'http://feedmixalot.herokuapp.com/' + link;
+            this.$('.shorty').attr('placeholder', this.link);
         },
         onRemove: function(ev) {
             this.model.ref().once('value', function(dataSnapshot) {
@@ -102,25 +104,13 @@ define([
             this.$('.urls').append(view.render().el);
             console.log('onUrlAdded');
         },
-        getShortUrl: function() {
-            var link;
-            this.model.child('link').ref().once('value', function(dataSnapshot) {
-                link = dataSnapshot.val();
-            });
-            if(!link) {
-                return 'generating...'
-            } else {
-                var url = 'http://feedmixalot.herokuapp.com/' + link;
-                return url;
-            }
-        },
         renderCount: function() {
             this.$('.count').text(this.itemCount);
         },
         render: function() {
             var urls = this.$('.urls').children().detach();
             this.$el.html(this.template(_.extend(this.model.val(), {
-                url: this.getShortUrl()
+                url: this.link
             })));
             this.$('.urls').append(urls);
             return this;
