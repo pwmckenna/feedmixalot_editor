@@ -117,7 +117,11 @@ define([
             console.log('onUrlAdded');
         },
         getShortUrl: function() {
-            var url = 'http://feedmixalot.herokuapp.com/' + this.model.name();
+            var link;
+            this.model.child('link').once('value', function(dataSnapshot) {
+                link = dataSnapshot.val();
+            });
+            var url = 'http://feedmixalot.herokuapp.com/' + link;
             return url;
         },
         renderCount: function() {

@@ -31,7 +31,6 @@ define([
             var link = this.model.firebase.child('links').push();
             var feed = this.model.firebase.child('users').child(user.id).child('feeds').push({
                 name: 'new feed',
-                facebook_id: this.model.get('user').id,
                 link: link.name()
             });
             link.set({
