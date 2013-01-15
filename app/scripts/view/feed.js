@@ -62,7 +62,8 @@ define([
         onRemove: function(ev) {
             this.model.ref().once('value', function(dataSnapshot) {
                 var link = dataSnapshot.val().link;
-                this.model.ref().parent().parent().parent().parent().child('links').child(link).remove();
+                var links = new Firebase('https://feedmixalot.firebaseIO.com/links/');
+                links.child(link).remove();
                 this.model.ref().remove();
             }, this);
         },
