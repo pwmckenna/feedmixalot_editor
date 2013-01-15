@@ -49,6 +49,7 @@ define([
         onLinkChanged: function(link) {
             this.link = 'http://feedmixalot.herokuapp.com/' + link.val();
             this.$('.shorty').attr('placeholder', this.link);
+            this.$('.shorty').attr('url', this.link);
         },
         onRemove: function(ev) {
             this.model.ref().once('value', function(dataSnapshot) {
