@@ -60,7 +60,7 @@ define([
             this.$('.label.name').text(name.val());
         },
         onRemove: function(ev) {
-            this.model.ref().on('value', function(dataSnapshot) {
+            this.model.ref().once('value', function(dataSnapshot) {
                 var link = dataSnapshot.val().link;
                 this.model.ref().parent().parent().child('links').child(link).remove();
                 this.model.ref().remove();
