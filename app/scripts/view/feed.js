@@ -27,7 +27,7 @@ define([
             'keyup .editor .name': 'onNameEdited'
         },
         initialize: function() {
-            _.bindAll(this, 'onUrlAdded', 'onUrlRemoved', 'onPreviewAvailable', 'onNameChanged');
+            _.bindAll(this, 'onUrlAdded', 'onUrlRemoved', 'onNameChanged');
             this.template = _.template($('#feed_template').html());
             this.render();
             this.views = [];
