@@ -46,8 +46,7 @@ define([
             this.$('.label.name').text(name.val());
         },
         onLinkChanged: function(link) {
-            debugger;
-            this.$('.shorty').text(link.val());
+            this.$('.shorty').attr('placeholder', this.getShortUrl());
         },
         onRemove: function(ev) {
             this.model.ref().once('value', function(dataSnapshot) {
