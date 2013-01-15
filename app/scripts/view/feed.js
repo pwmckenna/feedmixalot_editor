@@ -27,15 +27,14 @@ define([
             'keyup .editor .name': 'onNameEdited'
         },
         initialize: function() {
-            _.bindAll(this, 'onUrlAdded', 'onUrlRemoved', 'onLinkChanged', 'onNameChanged');
             this.template = _.template($('#feed_template').html());
             this.render();
             this.views = [];
             var urlChildren = this.model.child('urls');
-            urlChildren.ref().on('child_added', this.onUrlAdded);
-            urlChildren.ref().on('child_removed', this.onUrlRemoved);
-            this.model.child('link').ref().on('value', this.onLinkChanged);
-            this.model.child('name').ref().on('value', this.onNameChanged);
+            urlChildren.ref().on('child_added', this.onUrlAdded, this);
+            urlChildren.ref().on('child_removed', this.onUrlRemoved, this);
+            this.model.child('link').ref().on('value', this.onLinkChanged, this);
+            this.model.child('name').ref().on('value', this.onNameChanged, this);
             this.itemCount = 0;
         },
         onNameEdited: function(ev) {
@@ -47,6 +46,7 @@ define([
             this.$('.label.name').text(name.val());
         },
         onLinkChanged: function(link) {
+            debugger;
             this.$('.shorty').text(link.val());
         },
         onRemove: function(ev) {
