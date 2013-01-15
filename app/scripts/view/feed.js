@@ -47,7 +47,7 @@ define([
             this.$('.label.name').text(name.val());
         },
         onLinkChanged: function(link) {
-            this.link = 'http://feedmixalot.herokuapp.com/' + link;
+            this.link = 'http://feedmixalot.herokuapp.com/' + link.val();
             this.$('.shorty').attr('placeholder', this.link);
         },
         onRemove: function(ev) {
@@ -62,8 +62,8 @@ define([
             this.$('.editor').toggle();
         },
         onCopy: function(ev) {
-            console.log('onCopy', this.getShortUrl());
-            clip.setText(this.getShortUrl());
+            console.log('onCopy', this.link);
+            clip.setText(this.link;
 
             var elem = this.$('.copy')[0];
             if(clip.div) {
