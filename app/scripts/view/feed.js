@@ -63,7 +63,7 @@ define([
         },
         onCopy: function(ev) {
             console.log('onCopy', this.link);
-            clip.setText(this.link;
+            clip.setText(this.link);
 
             var elem = this.$('.copy')[0];
             if(clip.div) {
