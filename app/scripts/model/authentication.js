@@ -6,8 +6,8 @@ define([
     'use strict';
     var AuthenticationModel = Backbone.Model.extend({
         initialize: function() {
-            this.users = new Firebase('https://feedmixalot.firebaseIO.com/users');
-            this.auth = new FirebaseAuthClient(this.users);
+            this.firebase = new Firebase('https://feedmixalot.firebaseIO.com/');
+            this.auth = new FirebaseAuthClient(this.firebase);
         },
         login: function() {
             this.auth.login('facebook', _.bind(this.onLogin, this));
