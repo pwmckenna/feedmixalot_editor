@@ -60,7 +60,11 @@ define([
             this.$('.label.name').text(name.val());
         },
         onRemove: function(ev) {
-            this.model.ref().remove();
+            this.model.ref().on('value', function(dataSnapshot) {
+                var link = dataSnapshot().val().link;
+                this.model.ref().parent().parent().child('links').child(link).remove();
+                this.model.ref().remove();
+            }, this);
         },
         onEditToggle: function(ev) {
             this.$('.editor').toggle();
