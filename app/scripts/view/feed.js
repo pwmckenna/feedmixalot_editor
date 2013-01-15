@@ -118,7 +118,7 @@ define([
         },
         getShortUrl: function() {
             var link;
-            this.model.child('link').once('value', function(dataSnapshot) {
+            this.model.child('link').ref().once('value', function(dataSnapshot) {
                 link = dataSnapshot.val();
             });
             var url = 'http://feedmixalot.herokuapp.com/' + link;
