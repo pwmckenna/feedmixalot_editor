@@ -47,7 +47,7 @@ define([
             this.$('.label.name').text(name.val());
         },
         onLinkChanged: function(link) {
-            this.link = 'http://feedmixalot.herokuapp.com/' + link.val();
+            this.link = 'http://rss.feedmixalot.com/' + link.val();
             this.$('.shorty').attr('placeholder', this.link);
             this.$('.shorty').attr('url', this.link);
         },
