@@ -17,7 +17,7 @@ define([
                 return;
             }
             this.$('.btn').addClass('disabled');
-            this.model.login();
+            this.model.login('facebook');
         },
         render: function() {
             this.$el.html(this.template());
