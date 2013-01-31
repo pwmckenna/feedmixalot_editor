@@ -1,6 +1,9 @@
 {
-  "author": "",
-  "name": "",
+  "author": {
+  	"name": "Patrick Williams",
+  	"email": "pwmckenna@gmail.com"
+  },
+  "name": "feedmixalot",
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {}
