@@ -28,7 +28,7 @@ define([
         },
         onAddFeed: function(ev) {
             var user = this.model.get('user');
-            var link = this.model.firebase.child('links').push();
+            var link = this.model.firebase.child('rss').push();
             var feed = this.model.firebase.child('users').child(user.provider).child(user.id).child('feeds').push({
                 name: 'new feed',
                 link: link.name()
