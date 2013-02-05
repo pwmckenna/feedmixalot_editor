@@ -44,6 +44,8 @@ script:
   - yeoman test --disable-insight
   - yeoman build --disable-insight
 after_script:
+  - echo $?
+  - ls dist
   - git config --global user.email "${GH_EMAIL}"
   - git config --global user.name "${GH_FULL_NAME}"
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
@@ -57,3 +59,4 @@ after_script:
   - git commit -am "adding the yeoman build files to gh-pages"
   # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
   - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_USER_NAME}/${GH_PROJECT_NAME} gh-pages > /dev/null 2>&1
+  - echo $?
