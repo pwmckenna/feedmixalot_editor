@@ -1,6 +1,7 @@
+# onLogin null null (undefined, #undefined)
 CACHE MANIFEST
 
-# Time: Mon Jan 14 2013 19:35:52 GMT-0800 (PST)
+# Time: Tue Feb 05 2013 00:21:34 GMT+0000 (UTC)
 # This manifest was created by confess.js, http://github.com/jamesgpearce/confess
 #
 # Retrieved URL: http://localhost:3501/
@@ -18,7 +19,7 @@ CACHE MANIFEST
 #   cacheFilter: .*
 #   networkFilter: null
 #  url: http://localhost:3501
-#  configFile: /usr/local/lib/node_modules/yeoman/lib/support/confess.json
+#  configFile: /home/travis/.nvm/v0.8.17/lib/node_modules/yeoman/lib/support/confess.json
 
 CACHE:
 http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js
@@ -26,13 +27,13 @@ http://fonts.googleapis.com/css?family=Abril+Fatface
 http://www.google-analytics.com/ga.js
 https://cdn.firebase.com/v0/firebase-auth-client.js
 https://cdn.firebase.com/v0/firebase.js
+scripts/36d93199.amd-app.js
 scripts/8ab52a5b.plugins.js
-scripts/a53915e6.amd-app.js
 scripts/vendor/b7cdd774.ZeroClipboard.js
 scripts/vendor/cf69c6f2.modernizr.min.js
 styles/576c6595.font-awesome.css
+styles/9a17e34c.main.css
 styles/9ca8c101.bootstrap.css
-styles/e925c087.main.css
 
 NETWORK:
 *
