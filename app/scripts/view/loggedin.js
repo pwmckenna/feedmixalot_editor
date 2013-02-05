@@ -29,20 +29,23 @@ define([
         onAddFeed: function(ev) {
             var user = this.model.get('user');
             var link = this.model.firebase.child('links').push();
-            var feed = this.model.firebase.child('users').child(user.id).child('feeds').push({
+            var feed = this.model.firebase.child('users').child(user.provider).child(user.id).child('feeds').push({
                 name: 'new feed',
                 link: link.name()
             });
             link.set({
-                user: user.id,
+                user: {
+                    id: user.id,
+                    provider: user.provider
+                },
                 feed: feed.name()
             });
         },
         onUser: function() {
             var user = this.model.get('user');
             if(user) {
-                this.model.firebase.child('users').child(user.id).child('feeds').on('child_added', this.onFeedAdded);
-                this.model.firebase.child('users').child(user.id).child('feeds').on('child_removed', this.onFeedRemoved);
+                this.model.firebase.child('users').child(user.provider).child(user.id).child('feeds').on('child_added', this.onFeedAdded);
+                this.model.firebase.child('users').child(user.provider).child(user.id).child('feeds').on('child_removed', this.onFeedRemoved);
             }
             this.render();
         },
