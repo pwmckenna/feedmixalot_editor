@@ -6,7 +6,7 @@ define([
     'use strict';
     var AuthenticationModel = Backbone.Model.extend({
         initialize: function() {
-            this.firebase = new Firebase('https://featuredcontent.firebaseIO.com/');
+            this.firebase = new Firebase('https://rss.firebaseIO.com/');
             this.auth = new FirebaseAuthClient(this.firebase, _.bind(this.onLogin, this));
         },
         login: function(provider) {

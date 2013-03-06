@@ -54,7 +54,7 @@ define([
         onRemove: function(ev) {
             this.model.ref().once('value', function(dataSnapshot) {
                 var link = dataSnapshot.val().link;
-                var links = new Firebase('https://featuredcontent.firebaseIO.com/links/');
+                var links = new Firebase('https://rss.firebaseIO.com/links/');
                 links.child(link).remove();
                 this.model.ref().remove();
             }, this);
