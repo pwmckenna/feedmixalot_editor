@@ -19,10 +19,10 @@ env:
         # It must be encrypted using the travis gem
         # http://about.travis-ci.org/docs/user/build-configuration/#Secure-environment-variables
         #
-        # travis encrypt GH_OAUTH_TOKEN=0f2fab22a8147bc509c184e9b93677a99223b098
+        # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
         #
         # User specific env variables
-        - secure: "lCaPQ1WugaYDNiZsivs7g5yLFqgBA3Pm0OhiD0/tM1u5Hqbrx+PzNQXcwK/p\n8kU/zcldjSO60Mg1sUdSuPh6svoljH2PmnKW5x9UWAjKN829AyFSRMVJcVdF\noAd0ajEF4DUBnFC/RuzgDD9n97MipP9GLWtCrg13NwEZPCXgCKQ="
+        - secure: "nEmd+T5HHAD6/j6KVGHzpYl0y8xkDhM5n+w3cS2ku+zzKf/1LJhJq1pHaFiK\nbvc4RHTuXVcAo+fkza1lk3AMHgBVHw6GoSBfr9zszVpeBuxuvV2Ejx8haeEw\nswJoPjbS/chiY05WyHW5cYVZL68WPWAqgIB/xa9LxdnlIcgJC04="
         - GH_OWNER: pwmckenna
         - GH_PROJECT_NAME: feedmixalot_editor
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
@@ -35,7 +35,6 @@ before_script:
     - gem install optipng
     - npm install -g yo grunt-cli bower
 script:
-    - echo ${GH_OAUTH_TOKEN}
     # We want to gate on passing tests and a successful build
     - bower install
     - grunt

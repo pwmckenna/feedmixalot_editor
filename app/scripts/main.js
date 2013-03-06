@@ -25,7 +25,6 @@ require.config({
         esprima: 'vendor/esprima',
         jquery: 'vendor/jquery.min',
         smoothie: 'vendor/smoothie',
-        backbone: 'components/backbone/backbone-min',
         humane: 'components/Humane-Dates/humane',
         underscore: 'components/underscore/underscore-min',
         backbone: 'components/backbone/backbone-min',
