@@ -1,8 +1,10 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function($, _, Backbone) {
+    'backbone',
+    'firebase',
+    'firebase-auth-client'
+], function($, _, Backbone, Firebase, FirebaseAuthClient) {
     'use strict';
     var AuthenticationModel = Backbone.Model.extend({
         initialize: function() {

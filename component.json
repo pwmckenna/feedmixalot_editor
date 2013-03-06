@@ -1,7 +1,12 @@
 {
-    "name": "feedmixalot",
-    "dependencies": {
-        "backbone": "0.9.9",
-        "underscore": "1.4.4"
-    }
+  "name": "feedmixalot-editor",
+  "version": "0.0.0",
+  "dependencies": {
+    "requirejs": "~2.1.4",
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1",
+    "underscore": "~1.4.4",
+    "backbone": "~0.9.10"
+  },
+  "devDependencies": {}
 }
