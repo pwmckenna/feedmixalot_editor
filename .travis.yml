@@ -6,6 +6,8 @@ language:
     node_js
 node_js:
     - 0.8
+notifications:
+    irc: "irc.freenode.org#generator-travis-ci"
 branches:
     only:
         - master
@@ -22,7 +24,7 @@ env:
         # travis encrypt GH_OAUTH_TOKEN=XXXXXXXXXXXXXXX
         #
         # User specific env variables
-        - secure: "nEmd+T5HHAD6/j6KVGHzpYl0y8xkDhM5n+w3cS2ku+zzKf/1LJhJq1pHaFiK\nbvc4RHTuXVcAo+fkza1lk3AMHgBVHw6GoSBfr9zszVpeBuxuvV2Ejx8haeEw\nswJoPjbS/chiY05WyHW5cYVZL68WPWAqgIB/xa9LxdnlIcgJC04="
+        - secure: "2xcGasBOCP/9vD9t7Php2M/liY8J5I6K9hXdqDhOuSzz4QEpqAm0mpR/gNPQ52BCq3UnlqW61hU5IxChaV4CP22YMlWPj9iS0Tk17j0Ut484zzkcXCF990Z4e98rwJ/TYf8+65fwqesvO1GIAq7enWuvWEedkpYeBKwozibljM0="
         - GH_OWNER: pwmckenna
         - GH_PROJECT_NAME: feedmixalot_editor
         # This .travis.yml file instructs travis-ci.org to build your master branch using `yeoman build`
@@ -30,19 +32,16 @@ env:
 
 before_script:
     # install dependencies
-    - gem install compass
-    - gem install jpegtran
-    - gem install optipng
-    - npm install -g yo grunt-cli bower
+    - npm install -g grunt-cli bower
 script:
     # We want to gate on passing tests and a successful build
     - bower install
     - grunt
 after_success:
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-    - git submodule add -b gh-pages https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site 2>&1
+    - git submodule add -b gh-pages https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} site > /dev/null 2>&1
     - cd site
-    - git checkout gh-pages
+    - if git checkout gh-pages; then git checkout -b gh-pages; fi
     - git rm -r .
     - cp -R ../dist/* .
     - cp ../dist/.* .
@@ -51,4 +50,4 @@ after_success:
     - git config user.name "Patrick Williams"
     - git commit -am "adding the yeoman build files to gh-pages"
     # Any command that using GH_OAUTH_TOKEN must pipe the output to /dev/null to not expose your oauth token
-    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} gh-pages > /dev/null 2>&1
+    - git push https://${GH_OAUTH_TOKEN}@github.com/${GH_OWNER}/${GH_PROJECT_NAME} HEAD:gh-pages > /dev/null 2>&1
